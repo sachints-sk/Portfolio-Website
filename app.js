@@ -26,4 +26,5 @@ function displayVisitorCount(count) {
 }
 
 // Call the function when the page loads
+
 incrementVisitorCount();
