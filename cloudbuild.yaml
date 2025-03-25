@@ -1,0 +1,5 @@
+steps:
+  - name: 'gcr.io/cloud-builders/gsutil'
+    args: ['-m', 'rsync', '-r', '.', 'gs://sachints_dev']
+  - name: 'gcr.io/cloud-builders/gsutil'
+    args: ['setmeta', '-h', 'Cache-Control:no-cache,max-age=0', 'gs://sachints_dev/**']
