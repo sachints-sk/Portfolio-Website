@@ -1,0 +1,105 @@
+/* General Styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  .container {
+    max-width: 400px;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #673AB7; /* Purple color */
+  }
+  
+  p {
+    margin-bottom: 20px;
+    color: #555;
+  }
+  
+  /* Form Styling */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .form-group {
+    position: relative;
+  }
+  
+  .form-group label {
+    position: absolute;
+    top: 12px;
+    left: 15px;
+    color: #999;
+    pointer-events: none; /* Allow click through label */
+    transition: top 0.3s, font-size 0.3s;
+    font-size: 14px;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 16px;
+    color: #333;
+    transition: border-color 0.3s;
+  }
+  
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: #673AB7; /* Purple color */
+  }
+  
+  .form-group input:focus ~ label,
+  .form-group textarea:focus ~ label {
+    top: -8px;
+    font-size: 12px;
+    color: #673AB7; /* Purple color */
+  }
+  
+  /* Button Styling */
+  .btn {
+    padding: 12px 25px;
+    background-color: #673AB7; /* Purple color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 16px;
+  }
+  
+  .btn:hover {
+    background-color: #512DA8; /* Darker purple */
+  }
+  
+  /* Error Message */
+  .error {
+    color: red;
+    margin-top: 10px;
+  }
+  
+  /* Responsive Styling */
+  @media (max-width: 450px) {
+    .container {
+      max-width: 90%;
+    }
+  }

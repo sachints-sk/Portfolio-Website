@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a Blog</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <div class="container">
+        <h1>Create New Blog</h1>
+        <form id="blog-form">
+            <div>
+                <label for="heading">Heading:</label>
+                <input type="text" id="heading" name="heading" required>
+            </div>
+            <div>
+                <label for="introParagraph">Intro Paragraph:</label>
+                <textarea id="introParagraph" name="introParagraph" required></textarea>
+            </div>
+            <div id="content-sections">
+                <div class="content-section">
+                    <label for="subHeading1">Subheading 1:</label>
+                    <input type="text" id="subHeading1" name="subHeading1">
+                    <label for="paragraph1">Paragraph 1:</label>
+                    <textarea id="paragraph1" name="paragraph1"></textarea>
+                </div>
+            </div>
+            
+            <button type="button" id="add-section">Add Section</button>
+            <div>
+                <label for="conclusion">Conclusion:</label>
+                <textarea id="conclusion" name="conclusion" required></textarea>
+            </div>
+            <div>
+                <label for="thumbImageInput">Thumbnail Image:</label>
+                <input type="file" id="thumbImageInput" accept="image/*" required>
+            </div>
+            <div>
+                <label for="postThumbImageInput">Post Thumbnail Image:</label>
+                <input type="file" id="postThumbImageInput" accept="image/*" required>
+            </div>
+            <button type="submit">Create Blog</button>
+        </form>
+        <div id="error-message" class="error"></div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.13/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13/firebase-storage-compat.js"></script> 
+    <script  src="app.js"></script> 
+</body>
+</html>

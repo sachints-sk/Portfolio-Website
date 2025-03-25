@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a Blog</title>
+    <link rel="stylesheet" href="../../assets/css/animate.min.css" />
+   <link rel="stylesheet" href="../../assets/css/bootstrap.min.css" />
+   <link rel="stylesheet" href="../../assets/css/font-awesome-pro.min.css" />
+   <link rel="stylesheet" href="../../assets/css/flaticon_gerold.css" />
+   <link rel="stylesheet" href="../../assets/css/nice-select.css" />
+   <link rel="stylesheet" href="../../assets/css/backToTop.css" />
+   <link rel="stylesheet" href="../../assets/css/owl.carousel.min.css" />
+   <link rel="stylesheet" href="../../assets/css/swiper.min.css" />
+   <link rel="stylesheet" href="../../assets/css/odometer-theme-default.css" />
+   <link rel="stylesheet" href="../../assets/css/magnific-popup.css" />
+   <link rel="stylesheet" href="../../assets/css/main.css" />
+   <link rel="stylesheet" href="../../assets/css/light-mode.css" />
+   <link rel="stylesheet" href="../../assets/css/meanmenu.css" />
+   <link rel="stylesheet" href="../../assets/css/responsive.css" /> 
+</head>
+<body class="light-mode">
+    <section class="contact-section" id="contact-section">
+        <div class="container">
+          <div class="row">
+            <div class="">
+              <div class="contact-form-box wow fadeInLeft" data-wow-delay=".3s">
+                <div class="section-header">
+                  <h2 class="section-title">Create Blog</h2>
+                  
+                </div>
+                <div class="tj-contact-form">
+                  <form id="blog-form">
+                    <div class="row gx-3">
+                      <div class="">
+                        <div class="form_group">
+                          <input type="text" name="heading" id="heading" placeholder="Heading" autocomplete="off" required />
+                        </div>
+                      </div>
+                      <div class="">
+                        <div class="form_group">
+                          <textarea name="introParagraph" id="introParagraph" placeholder="Intro Paragraph" required></textarea>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form_group">
+                          <select id="category" name="category" class="tj-nice-select" required>
+                            <option value="tutorial">Tutorial</option>
+                            <option value="news">News</option>
+                            <option value="reviews">Reviews</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="">
+                        <div class="form_group">
+                          <textarea name="conclusion" id="conclusion" placeholder="Conclusion" autocomplete="off" required ></textarea>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <div id="content-sections"></div>
+                        <div class="form_btn">
+                            <button type="button"  class="btn tj-btn-primary"id="add-section">Add Section</button>
+                        </div>
+                        
+                      </div>
+                      <div style="padding-top: 10px;" class="col-sm-6">
+                        <div class="form_group">
+                          <input type="file" id="thumbImageInput" accept="image/*" required>
+                          <label for="thumbImageInput">Thumbnail Image</label>
+                        </div>
+                      </div>
+                      <div style="padding-top: 10px;" class="col-sm-6">
+                        <div class="form_group">
+                          <input type="file" id="postThumbImageInput" accept="image/*" required>
+                          <label for="postThumbImageInput">Post Thumbnail Image</label>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <div class="form_btn">
+                          <button type="submit" class="btn tj-btn-primary">Create Blog</button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+           
+          </div>
+        </div>
+      </section>
+
+    <script src="https://www.gstatic.com/firebasejs/10.13/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13/firebase-storage-compat.js"></script> 
+    <script src="create-blog.js"></script> 
+</body>
+</html>
