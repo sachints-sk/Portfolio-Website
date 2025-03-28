@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cloud Resume Challenge: Taking My Portfolio to the Cloud</title>
+  <meta name="description" content="My journey building and deploying a portfolio website on Google Cloud Platform (GCP) as part of the Cloud Resume Challenge. Learn about GCS, Cloud CDN, Cloud Functions, Firestore, and more!">
+
+  <meta name="keywords" content="cloud, resume challenge, gcp, google cloud platform, portfolio, website, cloud storage, cloud cdn, load balancer, cloud functions, firestore, ci/cd, cloud build, serverless, web development">
+
+  <meta name="author" content="Sachin TS">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Cloud Resume Challenge: Taking My Portfolio to the Cloud">
+  <meta property="og:description" content="My journey building and deploying a portfolio website on Google Cloud Platform (GCP) as part of the Cloud Resume Challenge. Learn about GCS, Cloud CDN, Cloud Functions, Firestore, and more!">
+  <meta property="og:image" content="https://sachints.dev/assets/img/blog/cloudresumechallenge1728x672.png"> 
+  <meta property="og:url" content="https://sachints.dev/blog/Cloud-Resume-Challenge.html">
+  <meta property="og:type" content="article">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="Cloud Resume Challenge: Taking My Portfolio to the Cloud">
+  <meta property="twitter:description" content="My journey building and deploying a portfolio website on Google Cloud Platform (GCP) as part of the Cloud Resume Challenge. Learn about GCS, Cloud CDN, Cloud Functions, Firestore, and more!">
+  <meta name="twitter:image" content="https://sachints.dev/assets/img/blog/cloudresumechallenge1728x672.png"> 
+
+   <!-- Place favicon.ico in the root directory -->
+   <link rel="apple-touch-icon" href="../assets/img/favicon.png" />
+   <link rel="shortcut icon" type="image/png" href="../assets/img/favicon.png" />
+
+   <!-- CSS here -->
+   <link rel="stylesheet" href="../assets/css/animate.min.css" />
+   <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+   <link rel="stylesheet" href="../assets/css/font-awesome-pro.min.css" />
+   <link rel="stylesheet" href="../assets/css/flaticon_gerold.css" />
+   <link rel="stylesheet" href="../assets/css/nice-select.css" />
+   <link rel="stylesheet" href="../assets/css/backToTop.css" />
+   <link rel="stylesheet" href="../assets/css/owl.carousel.min.css" />
+   <link rel="stylesheet" href="../assets/css/swiper.min.css" />
+   <link rel="stylesheet" href="../assets/css/odometer-theme-default.css" />
+   <link rel="stylesheet" href="../assets/css/magnific-popup.css" />
+   <link rel="stylesheet" href="../assets/css/main.css" />
+   <link rel="stylesheet" href="../assets/css/main-2.css" />
+   <link rel="stylesheet" href="../assets/css/main-3.css" />
+   <link rel="stylesheet" href="../assets/css/light-mode.css" />
+   <link rel="stylesheet" href="../assets/css/meanmenu.css" />
+   <link rel="stylesheet" href="../assets/css/responsive.css" />
+   <link rel="stylesheet" href="../assets/css/responsive-2.css" />
+   <link rel="stylesheet" href="../assets/css/responsive-3.css" />
+</head>
+
+<body class="absolute_header inner-page light-mode">
+  
+ <!-- HEADER START -->
+ <header class="tj-header-area header-absolute">
+    <div class="container">
+       <div class="row">
+          <div class="col-12 d-flex flex-wrap align-items-center">
+             <div class="logo-box">
+                <a href="../">
+                   <img src="../assets/img/logo/logo-dark.png" alt="" />
+                </a>
+             </div>
+             <div class="header-info-list d-none d-md-inline-block">
+                <ul class="ul-reset">
+                   <li><a href="mailto:sachints.sk@gmail.com">sachints.sk@gmail.com</a></li>
+                </ul>
+             </div>
+             <div class="header-menu" id="headerMenu">
+                <nav>
+                   <ul>
+                      <li class="current-menu-item">
+                         <a href="index.html">Blogs</a>
+                         
+                      </li>
+                      <li class=" ">
+                         <a class="" href="../">Portfolio</a>
+                        
+                      </li>
+                      
+                      <li><a href="../contact.html">Contact</a></li>
+                       <!--
+                      <li><a href="services-light.html">Services</a></li>
+                      <li><a href="portfolio-light.html">Portfolios</a></li>
+                      <li class="">
+                         <a href="blog-light.html">Blog</a>
+                         
+                      </li>
+                      <li><a href="contact-light.html">Contact</a></li>
+                      -->
+                   </ul>
+                </nav>
+             </div>
+             <div class="mobile-menu d-lg-none"></div>
+             <div class="header-button">
+               
+             </div>
+             <div class="menu-bar d-lg-none">
+                <button>
+                   <span></span>
+                   <span></span>
+                   <span></span>
+                   <span></span>
+                </button>
+             </div>
+          </div>
+       </div>
+    </div>
+ </header>
+ <header class="tj-header-area header-2 header-sticky sticky-out">
+    <div class="container">
+       <div class="row">
+          <div class="col-12 d-flex flex-wrap align-items-center">
+             <div class="logo-box">
+                <a href="../">
+                   <img src="../assets/img/logo/logo-dark.png" alt="" />
+                </a>
+             </div>
+             <div class="header-info-list d-none d-md-inline-block">
+                <ul class="ul-reset">
+                   <li><a href="mailto:sachints.sk@gmail.com">sachints.sk@gmail.com</a></li>
+                </ul>
+             </div>
+             <div class="header-menu" id="headerMenu">
+                <nav>
+                   <ul>
+                      <li class="current-menu-item">
+                         <a href="index.html">Blogs</a>
+                         
+                      </li>
+                      <li class=" ">
+                         <a class="" href="../">Portfolio</a>
+                        
+                      </li>
+                     
+                     
+                      <li><a href="../contact.html">Contact</a></li>
+                       <!--
+                      <li><a href="services-light.html">Services</a></li>
+                      <li><a href="portfolio-light.html">Portfolios</a></li>
+                     
+                      <li><a href="contact-light.html">Contact</a></li>
+                      -->
+                   </ul>
+                </nav>
+             </div>
+             <div class="mobile-menu d-lg-none"></div>
+             <div class="header-button">
+               
+             </div>
+             <div class="menu-bar d-lg-none">
+                <button>
+                   <span></span>
+                   <span></span>
+                   <span></span>
+                   <span></span>
+                </button>
+             </div>
+          </div>
+       </div>
+    </div>
+ </header>
+ <!-- HEADER END -->
+
+   <main class="site-content" id="content">
+      
+
+      <!-- START: Blog Section -->
+      <section class="full-width tj-post-details__area">
+         <div class="container">
+            <div class="row justify-content-center">
+                <div class="tj-post-details__container">
+                  <br>
+                    <article class="tj-single__post">
+                       <div class="tj-post__thumb">
+                          <img src="../assets/img/blog/cloudresumechallenge1728x672.png" alt="" />
+
+                         
+                       </div>
+
+                       <div class="tj-post__content">
+                          <div class="tj-post__meta entry-meta">
+                             <span><i class="fa-light fa-user"></i> <a href="#">By Admin</a></span>
+                             <span><i class="fa-light fa-calendar-days"></i> 28 March, 2025</span>
+                            
+                          </div>
+                          <h2 class="tj-post__title entry-title">Cloud Resume Challenge: Taking My Portfolio to the Cloud
+                          </h2>
+
+                          <div class="tj-post__content">
+                            
+                            <div class="portfolio_info">
+                                <div class="portfolio_info_text">
+                                  
+                                   <div class="desc">
+                                      <p>In this post, I'm sharing my experience hosting my portfolio website on Google Cloud Platform (GCP). I took on the Cloud Resume Challenge and learned a ton about using services like Cloud Storage, Cloud CDN, Cloud Functions, and more. Check it out to see how I built a scalable and performant website in the cloud! </p>
+                                        </div>
+                                  
+                                </div>
+                                
+                             </div>
+
+                             <div class="portfolio_description">
+                              <h3>What is the Cloud Resume Challenge?</h3>
+                              <div class="desc">
+                                <br>
+                                <p>
+                                  The Cloud Resume Challenge is a hands-on project designed to help you learn and demonstrate practical cloud skills. It guides you through building a real-world resume website and deploying it to the cloud, covering key concepts and technologies that are highly sought after in the industry.
+                                </p>
+                                
+                                <h4>The Challenge Steps:</h4>
+                                <p>
+                                  The core steps of the Cloud Resume Challenge involve:
+                                </p>
+                                <ul>
+                                  <li><b>Building a Resume:</b> Creating a resume in HTML.</li>
+                                  <li><b>Static Website Hosting:</b> Deploying the resume as a static website on a cloud storage service (like AWS S3 or Google Cloud Storage).</li>
+                                  <li><b>Content Delivery Network (CDN):</b> Using a CDN to improve website performance and reduce latency.</li>
+                                  <li><b>HTTPS:</b> Securing the website with HTTPS.</li>
+                                  <li><b>Dynamic Visitor Counter:</b> Implementing a dynamic visitor counter using a database and a serverless function.</li>
+                                  <li><b>Infrastructure as Code (IaC):</b>  Automating the deployment process using tools like Terraform or CloudFormation.</li>
+                                  <li><b>CI/CD Pipeline:</b> Setting up a continuous integration and continuous delivery pipeline to automatically deploy changes.</li>
+                                 
+                                </ul>
+                                <p>
+                                  While the challenge might seem daunting at first, it's broken down into manageable steps that allow you to learn at your own pace. The official <a href="https://cloudresumechallenge.dev/" target="_blank" rel="noopener noreferrer">Cloud Resume Challenge website</a> provides detailed instructions and resources to help you succeed.
+                                </p>
+                                <br>
+                              </div>
+                            </div>
+
+                            <div class="portfolio_description">
+                              <h3>How I Implemented It: A Step-by-Step Guide</h3>
+                              <div class="desc">
+                                <br>
+                                <div class="" >
+                                 <!-- *** REPLACE with paths to your screenshots/diagram *** -->
+                                 <div class="gallery_item" style="text-align: center;">
+                                    <img src="../assets/img/blog/Cloudresumechallengearchitechture.png" alt="Portfolio Screenshot 1" />
+                                 </div>
+                                
+                              </div>
+                                <p>
+                                  Now that you know what the Cloud Resume Challenge is, let's dive into how I actually built and deployed my portfolio website on Google Cloud Platform (GCP).  Here's a breakdown of the key steps, referring to the architecture diagram you see above:
+                                </p>
+                            
+                                <h4>1. Setting Up Static Website Hosting with Google Cloud Storage (GCS):</h4>
+                                <p>
+                                  First, I created a Google Cloud Storage bucket to store all my website's static files (HTML, CSS, JavaScript, images).  I configured the bucket for public access so that anyone can view the files. To keep things safe, I also enabled versioning on the bucket, which allows me to easily revert to previous versions if needed.  Think of it like having an "undo" button for my website files!
+                                </p>
+                            
+                                <h4>2. Making it Fast with Cloud CDN:</h4>
+                                <p>
+                                  To ensure a snappy experience for visitors around the world, I implemented Cloud CDN (Content Delivery Network).  As you can see in the diagram, Cloud CDN sits in front of my Cloud Storage bucket.  It caches my website content on Google's global network, so users get the content from a server that's geographically close to them. This dramatically reduces loading times.
+                                </p>
+                            
+                                <h4>3. Securing the Site and Setting Up the Domain with HTTP(S) Load Balancer:</h4>
+                                <p>
+                                  To make my website accessible via my custom domain and secure with HTTPS, I used an HTTP(S) Load Balancer.  As "Public Web Traffic" indicates in the diagram, user requests go through the Load Balancer. The Load Balancer handles incoming traffic, terminates SSL/TLS encryption (making the connection secure), and directs traffic to Cloud CDN.
+                                </p>
+                            
+                                <h4>4. Dynamic Visitor Counter with Cloud Functions and Firestore:</h4>
+                                <p>
+                                  Adding a dynamic visitor counter was a fun challenge!  Whenever someone visits my website, their browser triggers a Cloud Function (a serverless function written in Node.js).  This function then interacts with Firestore, a NoSQL database, to increment the visitor count. The updated count is then displayed on the webpage. As you can see on the top of the architecture, a "Visitor Count" that has bidirectional arrows demonstrating User visiting/incrementing and displaying on the user Interface to display the counter.
+                                </p>
+                            
+                                <h4>5. Automating Deployments with Cloud Build:</h4>
+                                <p>
+                                  To automate the deployment process, I set up a CI/CD (Continuous Integration/Continuous Delivery) pipeline using Cloud Build.  Whenever I push new code to my GitHub repository (shown on the left of the diagram), Cloud Build automatically builds and deploys the updated website to my Cloud Storage bucket. The diagram shows this connection from Github Repository -> Cloud Build -> Cloud Storage
+                                </p>
+                            
+                                <p>
+                                  By using these GCP services, I was able to create a robust, scalable, and secure portfolio website. The architecture diagram provides a visual overview of how everything works together!
+                                </p>
+                                <br>
+                              </div>
+                            </div>
+
+                            <div class="portfolio_description">
+                              <h3>Conclusion</h3>
+                              <div class="desc">
+                                <br>
+                                <p>
+                                  Taking on the Cloud Resume Challenge was an incredibly rewarding experience.  I not only gained hands-on experience with Google Cloud Platform, but I also learned a ton about building and deploying a real-world application in the cloud.
+                                </p>
+                                <p>
+                                  I'm excited to continue exploring the possibilities of GCP and to apply what I've learned to future projects. The cloud is constantly evolving, and I'm eager to keep learning and growing my skills. Thanks for reading about my journey!
+                                </p>
+                                <br>
+                              </div>
+                            </div>
+                             
+
+                             
+                          
+                          
+                       
+                            
+
+                           
+                          
+
+                          
+                           
+                           
+                          
+
+                             
+
+                          </div>
+                       </div>
+                    </article>
+
+                   
+
+                    
+                   <!-- comments area -->
+                   <div class="tj-comments__container">
+                    <div class="tj-comments__wrap" id="comment-section">
+                       <div class="tj-comment__title">
+                          <h3 class="comments-title"> <span id="comment-count"></span> Comments </h3>
+                       </div>
+
+                       <div class="tj-latest__comments">
+                          <ul  id="comment-list">
+                             
+                             
+                          </ul>
+                       </div>
+                    </div>
+
+                    <div class="comment-respond">
+                       <h3 class="comment-reply-title">
+                          <span class="tj-comment__title">Leave a Comment</span>
+                       </h3>
+
+                     
+                         
+
+                          <div class="row">
+
+                              <div style=" padding-top: 25px;padding-bottom: 20px;text-align: center;" id="sign-in-overlay">
+                                <p>Please sign in to comment.</p>
+                                <button style="margin: auto;" class="social-btn google"data-label="Sign in with Google" id="sign-in-button"></button>
+                              </div>
+
+                              <div id="comment-form-container">
+                               
+                                <form id="comment-form">
+                                  <div class="form_group">
+                                    <textarea id="comment-text" placeholder="Write your comment..." required></textarea>
+                                  </div>
+                                  <button type="submit" class="btn tj-btn-primary">Post Comment</button>
+                                </form>
+                              </div>
+                             
+                             
+                            
+                          </div>
+
+                         
+                         
+                     
+                    </div>
+
+                    <!-- Comment Section -->
+
+
+                 </div>
+               
+            </div>
+         </div>
+      </section>
+      <!-- END: Blog Section -->
+   </main>
+
+   <!-- FOOTER AREA START -->
+   <footer class="tj-footer-area">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-12 text-center">
+               <div class="footer-logo-box">
+                  <a href="#"><img src="assets/img/logo/logo.png" alt="" /></a>
+               </div>
+               <div class="footer-menu">
+                  <nav>
+                     <ul>
+                        <li><a href="../blog/">Blogs</a></li>
+                        <li><a href="../index.html">Home</a></li>
+                      
+                        <li><a href="../contact.html">Contact</a></li>
+                     </ul>
+                  </nav>
+               </div>
+               <div class="copy-text">
+                  <p>&copy; 2025 All rights reserved by <a href="#" target="_blank">Sachin T S</a></p>
+               </div>
+            </div>
+         </div>
+      </div>
+   </footer>
+   <!-- FOOTER AREA END -->
+
+   <!-- JS here -->
+   <script src="../assets/js/jquery.min.js"></script>
+   <script src="../assets/js/bootstrap.bundle.min.js"></script>
+   <script src="../assets/js/nice-select.min.js"></script>
+   <script src="../assets/js/backToTop.js"></script>
+   <script src="../assets/js/appear.min.js"></script>
+   <script src="../assets/js/wow.min.js"></script>
+   <script src="../assets/js/gsap.min.js"></script>
+   <script src="../assets/js/ScrollTrigger.min.js"></script>
+   <script src="../assets/js/lenis.min.js"></script>
+   <script src="../assets/js/lightcase.js"></script>
+   <script src="../assets/js/owl.carousel.min.js"></script>
+   <script src="../assets/js/swiper.min.js"></script>
+   <script src="../assets/js/imagesloaded-pkgd.js"></script>
+   <script src="../assets/js/isotope.pkgd.min.js"></script>
+   <script src="../assets/js/odometer.min.js"></script>
+   <script src="../assets/js/magnific-popup.js"></script>
+   <script src="../assets/js/validate.min.js"></script>
+   <script src="../assets/js/meanmenu.js"></script>
+   <script src="../assets/js/main.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/10.13/firebase-app-compat.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/10.13/firebase-auth-compat.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/10.13/firebase-firestore-compat.js"></script>
+   <script src="https://accounts.google.com/gsi/client" async defer></script>
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+   <script>
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyBzcuU7_U9H0C8tGA9UgKj5B8hvHT3w4s4",
+      authDomain: "sachints.dev",
+      projectId: "adept-ethos-432515-v9",
+      storageBucket: "adept-ethos-432515-v9.appspot.com",
+      messagingSenderId: "860179840435",
+      appId: "1:860179840435:web:91bf20d35124d57b7d1fc6"
+    };
+  
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+    const auth = firebase.auth();
+  
+    // Configure Google Sign-In provider
+    const provider = new firebase.auth.GoogleAuthProvider();
+  
+    const commentList = document.querySelector('.tj-latest__comments ul'); // Get the <ul> element for comments
+    const commentCount = document.getElementById('comment-count');
+    const signInOverlay = document.getElementById('sign-in-overlay');
+    const signInButton = document.getElementById('sign-in-button');
+    const commentFormContainer = document.getElementById('comment-form-container');
+    const commentForm = document.getElementById('comment-form');
+    const commentTextInput = document.getElementById('comment-text');
+  
+    // Function to handle Google Sign-In
+    function signInWithGoogle() {
+      auth.signInWithPopup(provider)
+        .then((result) => {
+          const user = result.user;
+          console.log("User signed in:", user);
+          // Hide the sign-in overlay and show the comment form
+          signInOverlay.style.display = 'none';
+          commentFormContainer.style.display = 'block';
+        })
+        .catch((error) => {
+          console.error("Error signing in:", error);
+        });
+    }
+  
+    // Attach sign-in event listener
+    signInButton.addEventListener('click', signInWithGoogle);
+  
+      // Check if user is signed in and show/hide elements accordingly
+      auth.onAuthStateChanged(user => {
+      if (user) {
+        signInOverlay.style.display = 'none';
+        commentFormContainer.style.display = 'block';
+      } else {
+        signInOverlay.style.display = 'block';
+        commentFormContainer.style.display = 'none';
+      }
+    });
+  
+    // Function to display comments
+    function displayComments(blogId) {
+      db.collection('blogs').doc(blogId).collection('comments').orderBy('timestamp', 'desc').get()
+        .then(querySnapshot => {
+          commentList.innerHTML = ''; // Clear existing comments
+  
+          // Update comment count
+          commentCount.textContent = `(${querySnapshot.size})`;
+  
+          querySnapshot.forEach(doc => {
+            const commentData = doc.data();
+            const commentElement = createCommentElement(commentData);
+            commentList.appendChild(commentElement);
+          });
+        })
+        .catch(error => {
+          console.error("Error fetching comments: ", error);
+        });
+    }
+  
+    // Function to create a comment element
+    function createCommentElement(commentData) {
+      const commentItem = document.createElement('li');
+      commentItem.classList.add('tj__comment');
+  
+      const commentWrap = document.createElement('div');
+      commentWrap.classList.add('tj-comment__wrap');
+  
+      // Profile picture
+      const avatarDiv = document.createElement('div');
+      avatarDiv.classList.add('comment__avatar');
+      const profilePic = document.createElement('img');
+      profilePic.src = commentData.profilePicUrl || '../assets/img/blog/postthumb.jpg';
+      profilePic.alt = commentData.name + "'s Profile Picture";
+      avatarDiv.appendChild(profilePic);
+  
+      // Comment content
+      const textDiv = document.createElement('div');
+      textDiv.classList.add('comment__text');
+  
+      const nameDiv = document.createElement('div');
+      nameDiv.classList.add('avatar__name');
+      const nameLink = document.createElement('a'); // Optional: Link the name
+      nameLink.href = '#'; // Replace with actual profile link if available
+      nameLink.textContent = commentData.name;
+      const nameHeading = document.createElement('h5');
+      nameHeading.appendChild(nameLink);
+      const timeSpan = document.createElement('span');
+      timeSpan.textContent = new Date(commentData.timestamp.seconds * 1000).toLocaleString();
+      nameDiv.appendChild(nameHeading);
+      nameDiv.appendChild(timeSpan);
+  
+      const commentText = document.createElement('p');
+      commentText.textContent = commentData.comment;
+  
+      textDiv.appendChild(nameDiv);
+      textDiv.appendChild(commentText);
+      // textDiv.appendChild(replyDiv); // Optional
+  
+      commentWrap.appendChild(avatarDiv);
+      commentWrap.appendChild(textDiv);
+      commentItem.appendChild(commentWrap);
+  
+      return commentItem;
+    }
+  
+    // Function to handle comment form submission
+    function handleCommentSubmit(blogId) {
+      // Get the comment form elements 
+      const commentForm = document.getElementById('comment-form');
+      const commentTextInput = document.getElementById('comment-text');
+  
+      // Add the event listener to the form
+      commentForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+  
+        const user = auth.currentUser;
+        if (user) {
+          const commentText = commentTextInput.value.trim();
+  
+          if (commentText !== "") {
+            // Save the comment to Firestore
+            db.collection('blogs').doc(blogId).collection('comments').add({
+              name: user.displayName,
+              profilePicUrl: user.photoURL,
+              comment: commentText,
+              timestamp: firebase.firestore.FieldValue.serverTimestamp()
+            })
+              .then(() => {
+                console.log("Comment added successfully!");
+                commentTextInput.value = ''; // Clear the comment input
+                displayComments(blogId);
+                Swal.fire({
+                  icon: 'success',
+                  title: 'Success!',
+                  text: 'Your comment has been posted.',
+                  showConfirmButton: false, // Hide the "OK" button
+                  timer: 1500 // Auto-close the popup after 1.5 seconds 
+                }); // Refresh the comments display
+              })
+              .catch(error => {
+                console.error("Error adding comment: ", error);
+                Swal.fire({
+                  icon: 'error',
+                  title: 'Oops...',
+                  text: 'Error adding comment!',
+                  // Optional: Set a custom color for the button
+                });
+                // Handle the error appropriately (e.g., display an error message)
+              });
+          }
+        } else {
+          // User is not signed in, show a message or redirect to login
+          console.error("User is not signed in.");
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'User is not signed in.',
+            // Optional: Set a custom color for the button
+          });
+          // You might want to display an error message or redirect to the login page here
+        }
+      });
+    }
+  
+    // Function to get the comment count for a blog
+    function getCommentCount(blogId) {
+      return db.collection('blogs').doc(blogId).collection('comments').get()
+        .then(querySnapshot => {
+          return querySnapshot.size;
+        });
+    }
+  
+    
+  
+    // Call displayComments and handleCommentSubmit when the page loads, passing in the blogId
+    document.addEventListener('DOMContentLoaded', function () {
+      const blogId = "h4guLIyhNl6Z7CtesfuJ"
+      if (blogId) {
+        displayComments(blogId);
+        handleCommentSubmit(blogId);
+      } else {
+        console.error("No blog ID found in the URL");
+        // Handle the case where there is no blog ID
+      }
+    });
+  
+  </script>
+</body>
+
+</html>

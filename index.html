@@ -211,7 +211,7 @@
             </div>
            <!-- CERTIFICATE SECTION END -->
                      <div class="button-box d-flex flex-wrap align-items-center">
-                        <a href="https://drive.google.com/file/d/1fbpReX_wowC3x8qGN-6_pl1YVAqVD95W/view?usp=drive_link" class="btn tj-btn-secondary">Download CV <i class="flaticon-download"></i></a>
+                        <a href="https://drive.google.com/file/d/1OOVXoqXmOzepxaMKHa5kZ11zHnQUJ1QK/view?usp=sharing" class="btn tj-btn-secondary">Download CV <i class="flaticon-download"></i></a>
                         <ul class="ul-reset social-icons">
                            <li>
                               <a href="https://www.instagram.com/sachints.sk/"><i class="fa-brands fa-instagram"></i></a>
@@ -248,8 +248,8 @@
                   </div>
                   <div class="col-4 col-lg-4">
                      <div class="funfact-item d-flex flex-column flex-sm-row flex-wrap align-items-center">
-                        <div class="number"><span class="odometer" data-count="1">0</span></div>
-                        <div class="text">Project <br />Completed</div>
+                        <div class="number"><span class="odometer" data-count="2">0</span></div>
+                        <div class="text">Projects <br />Completed</div>
                      </div>
                   </div>
                   <div class="col-4 col-lg-4">
@@ -361,54 +361,200 @@
 
      
 
-          <!-- PORTFOLIO SECTION START -->
-          <section class="portfolio-section" id="works-section">
-            <div class="container">
-               <div class="row">
-                  <div class="col-md-12">
-                     <div class="section-header text-center">
-                        <h2 class="section-title wow fadeInUp" data-wow-delay=".3s">My Recent Projects</h2>
-                        <p class="wow fadeInUp" data-wow-delay=".4s">
-                           My recent work in personal cloud projects has reinforced my confidence in creating exceptional and scalable solutions.
-                        </p>
-                     </div>
-                  </div>
+         <!-- PORTFOLIO SECTION START -->
+<section class="portfolio-section" id="works-section">
+   <div class="container">
+       <div class="row">
+           <div class="col-md-12">
+               <div class="section-header text-center">
+                   <h2 class="section-title wow fadeInUp" data-wow-delay=".3s">My Recent Projects</h2>
+                   <p class="wow fadeInUp" data-wow-delay=".4s">
+                       My recent work in personal cloud projects has reinforced my confidence in creating exceptional and scalable solutions.
+                   </p>
                </div>
-   
-               <div class="row">
-                  <div class="col-md-12">
-                     <div class="portfolio-filter text-center wow fadeInUp" data-wow-delay=".5s">
-                        <div class="button-group filter-button-group">
-                           <button data-filter="*" class="active">All</button>
-                           <button data-filter=".cloud">Cloud</button>
-                           <button data-filter=".flutter">Flutter</button>
-                           <button data-filter=".mobile-app">Apps</button>
-                           <div class="active-bg"></div>
-                        </div>
-                     </div>
-   
-                     <div class="portfolio-box wow fadeInUp" data-wow-delay=".6s">
-                        <div class="portfolio-sizer"></div>
-                        <div class="gutter-sizer"></div>
-                        <div class="portfolio-item cloud flutter mobile-app">
-                           <div class="image-box">
-                              <img src="assets/img/portfolio/CraftaStoryBanner1.png" alt="" />
-                           </div>
-                           <div class="content-box">
-                              <h3 class="portfolio-title">Craft-a-Story</h3>
-                              <p>A Flutter app: Personalized AI storytelling.</p>
-                              <i class="flaticon-up-right-arrow"></i>
-                              <button data-mfp-src="#portfolio-wrapper" class="portfolio-link modal-popup"></button>
-                           </div>
-                        </div>
-                        
-                        
-                     </div>
-                  </div>
+           </div>
+       </div>
+
+       <div class="row">
+           <div class="col-md-12">
+               <div class="portfolio-filter text-center wow fadeInUp" data-wow-delay=".5s">
+                   <div class="button-group filter-button-group">
+                       <button data-filter="*" class="active">All</button>
+                       <button data-filter=".cloud">Cloud</button>
+                       <button data-filter=".flutter">Flutter</button>
+                       <button data-filter=".mobile-app">Apps</button>
+                       <div class="active-bg"></div>
+                   </div>
                </div>
+
+               <!-- *** Single portfolio-box container *** -->
+               <div class="portfolio-box wow fadeInUp" data-wow-delay=".6s">
+                   <div class="portfolio-sizer"></div>
+                   <div class="gutter-sizer"></div>
+
+                   <!-- Item 1 -->
+                   <div class="portfolio-item cloud ">
+                       <div class="image-box">
+                           <img src="assets/img/portfolio/CloudResumeChallenge.png" alt="" />
+                       </div>
+                       <div class="content-box">
+                           <h3 class="portfolio-title">Cloud Resume Challenge</h3>
+                           <p>Hosting My Portfolio on the Cloud</p>
+                           <i class="flaticon-up-right-arrow"></i>
+                           <button data-mfp-src="#portfolio-wrapper-cloud-resume" class="portfolio-link modal-popup"></button>
+                       </div>
+                   </div>
+
+                   <!-- Item 2 (Sibling of Item 1) -->
+                   <div class="portfolio-item cloud flutter mobile-app">
+                       <div class="image-box">
+                           <img src="assets/img/portfolio/CraftaStoryBanner1.png" alt="" />
+                       </div>
+                       <div class="content-box">
+                           <h3 class="portfolio-title">Craft-a-Story</h3>
+                           <p>A Flutter app: Personalized AI storytelling.</p>
+                           <i class="flaticon-up-right-arrow"></i>
+                           <button data-mfp-src="#portfolio-wrapper" class="portfolio-link modal-popup"></button>
+                       </div>
+                   </div>
+
+                   <!-- *** Add more portfolio-item divs here as siblings *** -->
+
+               </div> <!-- *** End of the single portfolio-box *** -->
+           </div>
+       </div>
+   </div>
+</section>
+<!-- PORTFOLIO SECTION END -->
+
+
+                 <!-- start: Portfolio Popup -->
+<div id="portfolio-wrapper-cloud-resume" class="popup_content_area zoom-anim-dialog mfp-hide" data-lenis-prevent>
+   <div class="popup_modal_img">
+      <!-- *** REPLACE with a screenshot of your portfolio website *** -->
+      <img src="assets/img/blog/cloudresumechallenge1728x672.png" alt="Cloud Resume Challenge Portfolio Website" />
+   </div>
+
+   <div class="popup_modal_content">
+      <div class="portfolio_info">
+         <div class="portfolio_info_text">
+            <h2 class="title">Cloud Resume Challenge</h2>
+            <div class="desc">
+               <p>
+                  Hosted my portfolio website on Google Cloud Platform (GCP) as part of the Cloud Resume Challenge, utilizing GCS, Cloud CDN, HTTP(S) Load Balancer, Cloud Functions, Firestore, and Cloud Build for a scalable and performant solution.
+               </p>
             </div>
-         </section>
-         <!-- PORTFOLIO SECTION END -->
+           
+         </div>
+         <div class="portfolio_info_items">
+            <div class="info_item">
+               <div class="key">Category</div>
+               <div class="value">Cloud Project</div>
+            </div>
+            <div class="info_item">
+               <div class="key">Framework</div>
+               <div class="value">Static HTML/CSS/JS, Node.js (Cloud Function)</div>
+            </div>
+            <div class="info_item">
+               <div class="key">Start Date</div>
+               
+               <div class="value">26 March, 2025</div>
+            </div>
+            <div class="info_item">
+               <div class="key">End Date</div>
+               
+               <div class="value">28 March, 2025</div>
+            </div>
+            <div class="info_item">
+               <div class="key">Technology</div>
+               <div class="value">GCP, GCS, Cloud CDN, HTTP(S) Load Balancer, Cloud Functions, Firestore, Cloud Build</div>
+            </div>
+         </div>
+      </div>
+<br>
+      
+<br>
+      <div class="portfolio_description">
+         <h2 class="title">Project Description</h2>
+         <div class="desc">
+            <p>
+               This project involved completing the Cloud Resume Challenge by deploying a personal portfolio website entirely on Google Cloud Platform (GCP). 
+            </p>
+             <p>
+              The Cloud Resume Challenge is a hands-on project designed to help individuals learn and demonstrate practical cloud skills. It guides participants through building and deploying a real-world resume website to the cloud, covering key concepts and technologies highly sought after in the industry.
+            </p>
+         </div>
+      </div>
+
+      
+
+      <div class="portfolio_story_approach">
+         
+         <div class="portfolio_approach">
+            <div class="approach_title">
+               <h4 class="title">MY APPROACH</h4>
+            </div>
+            </div>
+            </div>
+
+
+            <div class="" >
+               <!-- *** REPLACE with paths to your screenshots/diagram *** -->
+               <div class="gallery_item" style="text-align: center;">
+                  <img src="assets/img/blog/Cloudresumechallengearchitechture.png" alt="Portfolio Screenshot 1" />
+               </div>
+              
+            </div>
+
+            <div class="portfolio_story_approach">
+         
+               <div class="portfolio_approach">
+                  
+            <div class="approach_content">
+               <p>
+                   The architecture was designed for scalability, performance, and security using various GCP services:
+               </p>
+               <ul>
+                   <li>
+                       <strong>Static Website Hosting (GCS):</strong> Website files (HTML, CSS, JS, images) are stored in a Google Cloud Storage bucket configured for public access and versioning.
+                   </li>
+                   <li>
+                       <strong>Content Delivery (Cloud CDN):</strong> Cloud CDN caches content globally, ensuring low latency and fast load times for users worldwide by serving content from edge locations close to them.
+                   </li>
+                   <li>
+                       <strong>Traffic Management & Security (HTTP(S) Load Balancer):</strong> An HTTP(S) Load Balancer acts as the entry point, managing incoming public web traffic, providing a custom domain name, and handling SSL/TLS termination for secure HTTPS connections via Google-managed certificates.
+                   </li>
+                   <li>
+                       <strong>Dynamic Functionality (Cloud Functions & Firestore):</strong> A dynamic visitor counter was implemented using a serverless approach. A Node.js Cloud Function is triggered on page load, interacting with Firestore (a NoSQL database) to atomically increment and retrieve the visitor count, which is then displayed on the frontend.
+                   </li>
+                   <li>
+                       <strong>Automation (Cloud Build & GitHub):</strong> A CI/CD pipeline was established using Cloud Build, triggered by pushes to a GitHub repository. This automates the build and deployment process, ensuring the latest code changes are seamlessly deployed to the GCS bucket.
+                   </li>
+               </ul>
+               <p>
+                  This multi-service approach demonstrates proficiency in leveraging different GCP components to create a well-architected cloud solution.
+               </p>
+            </div>
+         </div>
+         <div class="portfolio_description">
+            <h4>What's Next?</h4>
+            <div class="desc">
+                <br>
+               <p>
+                 This project was an incredibly rewarding experience, solidifying my understanding of GCP. I'm excited to continue exploring more advanced GCP services and apply these skills to future, more complex cloud projects. The cloud landscape is vast, and I'm eager to keep learning.
+               </p>
+               <br>
+               
+               <br><br>
+            </div>
+         </div>
+
+      </div>
+
+
+   </div>
+</div>
+<!-- end: Portfolio Popup -->
    
          <!-- start: Portfolio Popup -->
          <div id="portfolio-wrapper" class="popup_content_area zoom-anim-dialog mfp-hide" data-lenis-prevent>
@@ -562,6 +708,28 @@
             </div>
             <div class="row">
 
+               <div class="col-lg-4 col-md-6">
+                  <div class="blog-item wow fadeInUp" data-wow-delay=".5s">
+                     <div class="blog-thumb">
+                        <a href="blog/Cloud-Resume-Challenge.html">
+                           <img src="assets/img/blog/cloudresumechallenge409x368.png" alt="" />
+                        </a>
+                       
+                     </div>
+
+                     <div class="blog-content">
+                        <div class="blog-meta">
+                           <ul class="ul-reset">
+                              <li><i class="fa-light fa-calendar-days"></i> Mar 28, 2025</li>
+                              
+                           </ul>
+                        </div>
+                        <h3 class="blog-title"><a href="blog/Cloud-Resume-Challenge.html">Cloud Resume Challenge: Taking My Portfolio to the Cloud</a></h3>
+                     </div>
+                  </div>
+               </div>
+
+
 
                <div class="col-lg-4 col-md-6">
                   <div class="blog-item wow fadeInUp" data-wow-delay=".5s">
@@ -582,8 +750,6 @@
                         <h3 class="blog-title"><a href="blog/How-I-Passed-the-GCP-Associate-Cloud-Engineer-Exam.html">How I Passed the GCP Associate Cloud Engineer Exam: Tips and Resources</a></h3>
                      </div>
                   </div>
-
-                  
                </div>
 
 
